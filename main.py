@@ -63,7 +63,7 @@ def group_texts(examples):
     return result
 
 
-lm_dataset = tokenized.map(group_texts, batched=True, num_proc=4)
+lm_dataset = tokenized.map(group_texts, batched=True, num_proc=26)
 
 config = GPT2Config(
     vocab_size=tokenizer.vocab_size,
@@ -77,11 +77,10 @@ config = GPT2Config(
 )
 model = GPT2LMHeadModel(config)
 
-# 6. Define training args
+
 training_args = TrainingArguments(
     output_dir="./checkpoints",
     overwrite_output_dir=True,
-    evaluation_strategy="steps",
     eval_steps=500,
     save_strategy="steps",
     save_steps=1000,
