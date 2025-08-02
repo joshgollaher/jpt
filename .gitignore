@@ -1,0 +1,6 @@
+.venv/
+.idea/
+uv.lock
+wikitext.txt
+tokenizer/
+checkpoints/
